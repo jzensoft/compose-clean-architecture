@@ -9,24 +9,30 @@ class PhotoRepositoryImpl(
     private val photoApi: PhotoApi
 ) : PhotoRepository {
     override suspend fun getPhotos(): Resource<List<PhotoItem>> {
-        val res = photoApi.getPhotos()
-        val body = res.body()
-        if (body != null) {
-            val data = mutableListOf<PhotoItem>()
-            body.forEach {
-                data.add(it)
+        try {
+            val res = photoApi.getPhotos()
+            val body = res.body()
+            if (body != null) {
+                val data = mutableListOf<PhotoItem>()
+                body.forEach { data.add(it) }
+                return Resource.Success(body)
             }
-            return Resource.Success(body)
+            return Resource.Error(res.message())
+        } catch (e: Exception) {
+            return Resource.Error(e.message ?: "")
         }
-        return Resource.Error(res.message())
     }
 
     override suspend fun getPhoto(id: String): Resource<PhotoItem> {
-        val res = photoApi.getPhoto(id)
-        val body = res.body()
-        if (body != null) {
-            return Resource.Success(body)
+        try {
+            val res = photoApi.getPhoto(id)
+            val body = res.body()
+            if (body != null) {
+                return Resource.Success(body)
+            }
+            return Resource.Error(res.message())
+        } catch (e: Exception) {
+            return Resource.Error(e.message ?: "")
         }
-        return Resource.Error(res.message())
     }
 }

@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = Screen.PhotoItemScreen.route + "/{id}"
                         ) {
-                            PhotoItemScreen()
+                            PhotoItemScreen(navController = navController)
                         }
                     }
                 }
