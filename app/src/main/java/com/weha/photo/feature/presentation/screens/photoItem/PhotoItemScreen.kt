@@ -48,7 +48,7 @@ fun PhotoItemScreen(
                 .padding(innerPadding)
         ) {
             if (itemState.data != null) {
-                PhotoItem(title = itemState.data.title) { }
+                PhotoItem(title = itemState.data.title) {}
             }
             if (itemState.isLoading) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))

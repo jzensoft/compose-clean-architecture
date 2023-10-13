@@ -21,6 +21,7 @@ class PhotoViewModel(
     }
 
     private fun getPhotos() {
+        _photoState.value = PhotoState(isLoading = true)
         viewModelScope.launch {
             when (val res = photoRepository.getPhotos()) {
                 is Resource.Success -> {

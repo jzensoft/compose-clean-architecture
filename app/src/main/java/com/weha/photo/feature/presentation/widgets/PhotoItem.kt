@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.weha.photo.core.utils.clickableSingle
 
 @Composable
-fun PhotoItem(title: String, onClick: () -> Unit) {
+fun PhotoItem(title: String, onClick: () -> Unit?) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
