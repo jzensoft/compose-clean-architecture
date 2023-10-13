@@ -15,8 +15,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.weha.photo.feature.presentation.widgets.PhotoItem
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,11 +47,12 @@ fun PhotoItemScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            Text(text = itemState.data?.title ?: "", modifier = Modifier.padding(20.dp))
+            if (itemState.data != null) {
+                PhotoItem(title = itemState.data.title) { }
+            }
             if (itemState.isLoading) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }
     }
-
 }
