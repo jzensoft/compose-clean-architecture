@@ -1,6 +1,5 @@
 package com.weha.photo.feature.presentation.screens.photo
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.weha.photo.config.route.Screen
+import com.weha.photo.core.utils.clickableSingle
 import org.koin.androidx.compose.koinViewModel
 
 
@@ -28,7 +28,7 @@ fun PhotoScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable {
+                        .clickableSingle {
                             navController.navigate(Screen.PhotoItemScreen.route + "/${photo.id}")
                         }
                         .padding(20.dp)
