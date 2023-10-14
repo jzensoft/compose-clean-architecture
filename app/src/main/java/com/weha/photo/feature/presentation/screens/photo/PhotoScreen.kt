@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.weha.photo.config.route.Screen
+import com.weha.photo.config.screen.Screen
 import com.weha.photo.feature.presentation.widgets.PhotoItem
 import org.koin.androidx.compose.koinViewModel
 
@@ -42,7 +42,7 @@ fun PhotoScreen(
                 LazyColumn(modifier = Modifier.fillMaxWidth()) {
                     items(photoState.photo.size) { index ->
                         val photo = photoState.photo[index]
-                        PhotoItem(title = photo.title) {
+                        PhotoItem(title = photo.title, image = photo.thumbnailUrl) {
                             navController.navigate(Screen.PhotoItemScreen.route + "/${photo.id}")
                         }
                     }

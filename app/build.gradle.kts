@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.weha.photo"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.weha.photo"
@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-     val koin_version = "3.3.2"
+    val koinVersion = "3.3.2"
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -63,9 +63,12 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.retrofit2:converter-gson:2.3.0")
-    implementation ("io.insert-koin:koin-core:$koin_version")
-    implementation ("io.insert-koin:koin-android:$koin_version")
-    implementation ("io.insert-koin:koin-androidx-compose:3.4.1")
+    implementation("io.insert-koin:koin-core:$koinVersion")
+    implementation("io.insert-koin:koin-android:$koinVersion")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.1")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.8")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

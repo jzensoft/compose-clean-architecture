@@ -2,6 +2,8 @@ package com.weha.photo.feature.di
 
 import com.weha.photo.feature.data.remote.PhotoApi
 import com.weha.photo.feature.data.repository.PhotoRepositoryImpl
+import com.weha.photo.feature.data.repository.datasource.PhotoRemoteDatasource
+import com.weha.photo.feature.data.repository.datasourceImpl.PhotoRemoteDatasourceImpl
 import com.weha.photo.feature.domain.PhotoRepository
 import com.weha.photo.feature.presentation.screens.photo.PhotoViewModel
 import com.weha.photo.feature.presentation.screens.photoItem.PhotoItemViewModel
@@ -18,6 +20,7 @@ val appModule = module {
         .create(PhotoApi::class.java)
 
     single { retrofit }
+    single<PhotoRemoteDatasource> { PhotoRemoteDatasourceImpl(get()) }
     single<PhotoRepository> { PhotoRepositoryImpl(get()) }
 
     viewModel { PhotoViewModel(get()) }

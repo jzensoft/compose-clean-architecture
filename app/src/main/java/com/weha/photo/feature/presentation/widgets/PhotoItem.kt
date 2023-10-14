@@ -7,10 +7,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.weha.photo.core.utils.clickableSingle
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun PhotoItem(title: String, onClick: () -> Unit?) {
+fun PhotoItem(title: String, image: String, onClick: () -> Unit?) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -19,6 +22,13 @@ fun PhotoItem(title: String, onClick: () -> Unit?) {
             }
             .padding(20.dp)
     ) {
+        if (image.isNotEmpty()) {
+            GlideImage(
+                model = image,
+                contentDescription = "",
+                modifier = Modifier.padding(end = 10.dp),
+             )
+        }
         Text(text = title)
     }
 }

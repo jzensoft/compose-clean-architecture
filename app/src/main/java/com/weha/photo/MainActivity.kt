@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.weha.photo.config.route.Screen
+import com.weha.photo.config.screen.Screen
 import com.weha.photo.config.theme.PhotoTheme
 import com.weha.photo.feature.presentation.screens.photo.PhotoScreen
 import com.weha.photo.feature.presentation.screens.photoItem.PhotoItemScreen

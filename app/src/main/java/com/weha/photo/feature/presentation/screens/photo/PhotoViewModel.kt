@@ -29,7 +29,7 @@ class PhotoViewModel(
                 }
 
                 else -> {
-                    _photoState.value = PhotoState(isLoading = false, error = res.message ?: "")
+                    _photoState.value = PhotoState(isLoading = false, error = res.message)
                 }
             }
         }
