@@ -39,7 +39,9 @@ fun PhotoScreen(
                 .padding(innerPadding)
         ) {
             if (photoState.photo.isNotEmpty()) {
-                LazyColumn(modifier = Modifier.fillMaxWidth()) {
+                LazyColumn(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     items(photoState.photo.size) { index ->
                         val photo = photoState.photo[index]
                         PhotoItem(title = photo.title, image = photo.thumbnailUrl) {

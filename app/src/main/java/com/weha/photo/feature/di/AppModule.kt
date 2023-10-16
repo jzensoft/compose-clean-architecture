@@ -19,7 +19,7 @@ val appModule = module {
         .build()
         .create(PhotoApi::class.java)
 
-    single { retrofit }
+    single<PhotoApi> { retrofit }
     single<PhotoRemoteDatasource> { PhotoRemoteDatasourceImpl(get()) }
     single<PhotoRepository> { PhotoRepositoryImpl(get()) }
 
